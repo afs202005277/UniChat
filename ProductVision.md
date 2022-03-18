@@ -3,9 +3,9 @@
 
 ### Vision Statement
 
-UniChat - Keeping students connected through simplicity and efficiency. The next generation of chats for student cooperation.
+UniChat - The next generation of chats for efficient student cooperation. Simplicity makes perfection.
 
-UniChat - Keeping students connected through simplicity. The next generation of chats for efficient student cooperation.
+UniChat - The next generation of chats for student cooperation. Simplicity makes efficiency. Efficiency makes perfection. For students, by students.
 
 ### Main Features
 Indicate an  initial/tentative list of high-level features - high-level capabilities or desired services of the system that are necessary to deliver benefits to the users (cf. RUP).
