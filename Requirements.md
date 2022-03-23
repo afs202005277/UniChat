@@ -27,6 +27,36 @@ Briefly describe each use case mentioning the following:
 * **Normal Flow**. Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system. 
 * **Alternative Flows and Exceptions**. Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. 
 
+|||
+| --- | --- |
+| *Name* | Send/receive text messages from other users |
+| *Actor* |  User(student) | 
+| *Description* | Each student sends and receives messages from other students of their classes. |
+| *Preconditions* | - The student is logged in the app and is enrolled in some course. <br> - The "target" group chat is already active.|
+| *Postconditions* | - The message is sent. <br> - The remaining members of the group receive the message. <br> - Message storage is updated. |
+| *Normal flow* | 1. The user accesses the chat feature in the Uni app.<br> 2. The system shows the list of the available group chats (one per course).<br> 3. The user chooses the group where he wants to send the message. <br> 4. The message is written and sent to the other members. <br> 5. Firebase stores the message.
+
+|||
+| --- | --- |
+| *Name* | Send/receive files from other users |
+| *Actor* |  User(student) | 
+| *Description* | Each student sends and receives files from other students of their classes. |
+| *Preconditions* | - The student is logged in the app and is enrolled in some course. <br> - The "target" group chat is already active.|
+| *Postconditions* | - The file is sent. <br> - The remaining members of the group receive the file. <br> - File storage is updated. |
+| *Normal flow* | 1. The user accesses the chat feature in the Uni app.<br> 2. The system shows the list of the available group chats (one per course).<br> 3. The user chooses the group where he wants to send the message. <br> 4. The file is selected and sent to the other members. <br> 5. Firebase stores the message.
+| *Alternative flows and exceptions* | 1. [File too large] If, in step 4 of the normal flow the selected file is too large (>15 MB) the system warns the user and gives the possibility to cancel or to choose another file. |
+
+
+|||
+| --- | --- |
+| *Name* | Access sent messages and files |
+| *Actor* |  User | 
+| *Description* | The user has access to all the messages (and files) that were sent and received in every group chat he participates in. |
+| *Preconditions* | - The student is logged in the app and is enrolled in some course. <br> - The "target" group chat is already active.|
+| *Postconditions* | -  The messages and files are displayed to the user.|
+| *Normal flow* | 1. The user accesses the chat feature in the Uni app.<br> 2. The system shows the list of the available group chats (one per course).<br> 3. The user chooses the group whose history he wants to consult. <br> 4. All the messages and files are shown to the user.
+| *Alternative flows and exceptions* | 1. [Payment failure] If, in step 6 of the normal flow the payment fails, the system gives the user the possibility to cancel or retry. |
+
 Example:
 |||
 | --- | --- |
