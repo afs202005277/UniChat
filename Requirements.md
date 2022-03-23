@@ -1,8 +1,14 @@
 
 ## Requirements
 
-In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
+# Non-functional requirements:
+- The app must be developed using Flutter.
+- The connection between the app and Sigarra is mandatory.
+- The chat will run using the Firebase API.
 
+# Functional requirements:
+- Sending and receiving messages and files between students.
+- Automatic creation of the different chats.
 ### Use case model 
 
 Create a use-case diagram in UML with all high-level use cases possibly addressed by your module, to clarify the context and boundaries of your application.
