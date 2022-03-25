@@ -41,7 +41,6 @@
 | *Preconditions* | - The student is logged in the app and is enrolled in some course. <br> - The "target" group chat is already active.|
 | *Postconditions* | -  The messages and files are displayed to the user.|
 | *Normal flow* | 1. The user accesses the chat feature in the Uni app.<br> 2. The system shows the list of the available group chats (one per course).<br> 3. The user chooses the group whose history he wants to consult. <br> 4. All the messages and files are shown to the user.
-| *Alternative flows and exceptions* | 1. [Payment failure] If, in step 6 of the normal flow the payment fails, the system gives the user the possibility to cancel or retry. |
 
 ### User stories
 The user stories should be created as GitHub issues. Therefore, this section will *not* exist in your report, it is here only to explain how you should describe the requirements of the product as **user stories**. 
