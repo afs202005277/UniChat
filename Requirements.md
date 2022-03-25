@@ -2,9 +2,15 @@
 ## Requirements
 
 # Non-functional requirements:
-- The app must be developed using Flutter.
-- The connection between the app and Sigarra is mandatory.
-- The chat will run using the Firebase API.
+- Technical Requirement: The feature must be developed using Flutter.
+- Confidenciality: Student's messages must be encrypted to ensure a safe user experience.
+- Authenticity: Copycats will not be allowed in our chats.
+- Availability: Keep the servers online and available for users all of the time.
+- Recoverability: Messages will always be stored in the cloud for recoverability in case the servers crash.
+- Performance: Fast and efficient use of resources is required for a good performance.
+- Co-existence: Firebase is required for its servers and databases and Sigarra for student information.
+- Operability: Offline students should be able to put messages on hold until back online.
+- User inteface aesthetics: The interface must be user friendly to ensure smooth communication.
 
 # Functional requirements:
 - Sending and receiving messages and files between students.
