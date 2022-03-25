@@ -38,16 +38,6 @@
 | *Normal flow* | 1. The user accesses the chat feature in the Uni app.<br> 2. The system shows the list of the available group chats (one per course).<br> 3. The user chooses the group where he wants to send the file. <br> 4. The system displays the history of messages and files sent in the group and gives the possibility to type a new message. 5. The file is selected and sent to the other members. <br> 6. Firebase stores the message.
 | *Alternative flows and exceptions* | 1. [File too large] If, in step 5 of the normal flow the selected file is too large (>15 MB) the system warns the user and gives the possibility to cancel or to choose another file. |
 
-
-|||
-| --- | --- |
-| *Name* | Access sent messages and files |
-| *Actor* |  User | 
-| *Description* | The user has access to all the messages (and files) that were sent and received in every group chat he participates in. |
-| *Preconditions* | - The student is logged in the app and is enrolled in some course. <br> - The "target" group chat is already active.|
-| *Postconditions* | -  The messages and files are displayed to the user.|
-| *Normal flow* | 1. The user accesses the chat feature in the Uni app.<br> 2. The system shows the list of the available group chats (one per course).<br> 3. The user chooses the group whose history he wants to consult. <br> 4. All the messages and files are shown to the user.
-
 ### User stories
 The user stories should be created as GitHub issues. Therefore, this section will *not* exist in your report, it is here only to explain how you should describe the requirements of the product as **user stories**. 
 
