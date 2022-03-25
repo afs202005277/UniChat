@@ -26,7 +26,7 @@
 | *Description* | Each student sends and receives messages from other students of their classes. |
 | *Preconditions* | - The student is logged in the app and is enrolled in some course. <br> - The "target" group chat is already active.|
 | *Postconditions* | - The message is sent. <br> - The remaining members of the group receive the message. <br> - Message storage is updated. |
-| *Normal flow* | 1. The user accesses the chat feature in the Uni app.<br> 2. The system shows the list of the available group chats (one per course).<br> 3. The user chooses the group where he wants to send the message. <br> 4. The message is written and sent to the other members. <br> 5. Firebase stores the message.
+| *Normal flow* | 1. The user accesses the chat feature in the Uni app.<br> 2. The system shows the list of the available group chats (one per course).<br> 3. The user chooses the group where he wants to send the message. <br> 4. The system displays the history of messages and files sent in the group and gives the possibility to type a new message. <br> 5. The message is written and sent to the other members. <br> 6. Firebase stores the message.
 
 |||
 | --- | --- |
@@ -35,8 +35,8 @@
 | *Description* | Each student sends and receives files from other students of their classes. |
 | *Preconditions* | - The student is logged in the app and is enrolled in some course. <br> - The "target" group chat is already active.|
 | *Postconditions* | - The file is sent. <br> - The remaining members of the group receive the file. <br> - File storage is updated. |
-| *Normal flow* | 1. The user accesses the chat feature in the Uni app.<br> 2. The system shows the list of the available group chats (one per course).<br> 3. The user chooses the group where he wants to send the message. <br> 4. The file is selected and sent to the other members. <br> 5. Firebase stores the message.
-| *Alternative flows and exceptions* | 1. [File too large] If, in step 4 of the normal flow the selected file is too large (>15 MB) the system warns the user and gives the possibility to cancel or to choose another file. |
+| *Normal flow* | 1. The user accesses the chat feature in the Uni app.<br> 2. The system shows the list of the available group chats (one per course).<br> 3. The user chooses the group where he wants to send the file. <br> 4. The system displays the history of messages and files sent in the group and gives the possibility to type a new message. 5. The file is selected and sent to the other members. <br> 6. Firebase stores the message.
+| *Alternative flows and exceptions* | 1. [File too large] If, in step 5 of the normal flow the selected file is too large (>15 MB) the system warns the user and gives the possibility to cancel or to choose another file. |
 
 
 |||
