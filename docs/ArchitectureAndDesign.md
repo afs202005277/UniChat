@@ -1,12 +1,8 @@
 
 ## Architecture and Design
-The architecture of a software system encompasses the set of key decisions about its overall organization. 
 
-A well written architecture document is brief but reduces the amount of time it takes new programmers to a project to understand the code to feel able to make modifications and enhancements.
+The UniChat app takes use of the Flutter SDK to realize backend access and in association with the Android SDK make the frontend of the app. The backend is responsible for the constant chat synchronization between local and database chat, through the use of Firebase, and for the retrieval of student information from Sigarra, most importantly, making sure the student's class groups are constantly updated. The frontend is responsible for providing the functionalities of the app to the users.
 
-To document the architecture requires describing the decomposition of the system in their parts (high-level components) and the key behaviors and collaborations between them. 
-
-In this section you should start by briefly describing the overall components of the project and their interrelations. You should also describe how you solved typical problems you may have encountered, pointing to well-known architectural and design patterns, if applicable.
 
 ### Logical architecture
 The purpose of this subsection is to document the high-level logical structure of the code (Logical View), using a UML diagram with logical packages, without the worry of allocating to components, processes or machines.
