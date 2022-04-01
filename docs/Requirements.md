@@ -17,7 +17,7 @@
 - Automatic creation of the different chats.
 ### Use case model 
 
-![UseCaseDiagram](./UseCaseDiagram.png)
+![UseCaseDiagram](../img/UseCaseDiagram.png)
 
 |||
 | --- | --- |
