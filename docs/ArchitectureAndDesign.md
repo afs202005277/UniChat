@@ -13,7 +13,7 @@ It can be beneficial to present the system both in a horizontal or vertical deco
 
 Example of _UML package diagram_ showing a _logical view_ of the Eletronic Ticketing System (to be accompanied by a short description of each package):
 
-![LogicalView](../LogicDiagramUML.png)
+![LogicalView](img/LogicDiagramUML.png)
 
 ### Physical architecture
 The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams (Deployment View) or component diagrams (Implementation View), separate or integrated, showing the physical structure of the system.
