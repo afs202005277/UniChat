@@ -13,11 +13,7 @@ The UniChat Application is constituted by the user interface (UniChat UI), the N
 
 ### Physical architecture
 
-The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams (Deployment View) or component diagrams (Implementation View), separate or integrated, showing the physical structure of the system.
-
-It should describe also the technologies considered and justify the selections made. Examples of technologies relevant for uni4all are, for example, frameworks for mobile applications (such as Flutter).
-
-Flutter
+The user smartphone will have our app installed, made with Flutter. This app will access our backend server which is made up of the UNI backend and our Firebase Configuration. The Server will then use the external services Firebase (database) and SIGARRA (student information) for its functioning.
 
 ![DeploymentView](../img/PhysicalArchitectureUML.png)
 
