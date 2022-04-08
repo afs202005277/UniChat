@@ -6,7 +6,7 @@ The UniChat app takes use of the Flutter SDK to realize backend access and in as
 
 ### Logical architecture
 
-The UniChat Application is constituted by the user interface (UniChat UI), the Notification system and the Chat Room Authorization System. Both the user interface and Notification System take use of the Chat Room Authorization System to garantee the connection with Sigarra, for student information, and UNI Chat Server, for Chat Database managed by Firebase.
+The UniChat Application is constituted by the user interface (UniChat UI), the Notification System and the Chat Room Authorization System. Both the User Interface and Notification System take use of the Chat Room Authorization System to garantee the connection with Sigarra, for student information, and UNI Chat Server, for chat database which is managed Firebase.
 
 ### Logical architecture
 ![LogicalView](../img/LogicDiagramUML.png)
