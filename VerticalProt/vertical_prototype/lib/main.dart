@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vertical_prototype/teste.dart';
-import 'AllChatsDisplay.dart';
+import 'all_chats_display.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +11,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: AllChatsDisplay()
-      //home: Teste()
       );
   }
 }
