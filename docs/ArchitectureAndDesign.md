@@ -20,8 +20,4 @@ The user smartphone will have our app installed, made with Flutter. This app wil
 
 
 ### Vertical prototype
-To help on validating all the architectural, design and technological decisions made, we usually implement a vertical prototype, a thin vertical slice of the system.
-
-In this subsection please describe in more detail which, and how, user(s) story(ies) were implemented. 
-
-At this phase, instead of a concret user story, you can simply implement a feature that demonstrates thay you can use the technology, for example, show a screen with the app credits (name and authors).
+[Screen with our names and a message](../VerticalProt/vertical_prototype/build/app/outputs/flutter-apk/app-release.apk)
