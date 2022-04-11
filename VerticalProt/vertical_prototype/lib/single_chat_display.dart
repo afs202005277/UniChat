@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
 class SingleChatDisplay extends StatelessWidget {
-  String _sigla, _nomeCompleto, _turma;
-  int _numParticipantes;
+  final String _sigla, _nomeCompleto, _turma;
+  final int _numParticipantes;
+  final double marginsThickness = 15.0;
+  final Color mainColor = const Color.fromRGBO(149, 0, 20, 1.0);
+  final double separatorThickness = 2.0;
+  final double rowHeight = 50.0;
+  final double fontSize = 22.0;
+  final double circleRadius = 23.0;
 
-  SingleChatDisplay(
+  const SingleChatDisplay(
       this._sigla, this._nomeCompleto, this._turma, this._numParticipantes,
       {Key? key})
       : super(key: key);
@@ -12,57 +18,58 @@ class SingleChatDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.only(top: 15.0),
-        padding: const EdgeInsets.only(bottom: 15.0),
-        decoration: const BoxDecoration(
+        margin: EdgeInsets.only(top: marginsThickness),
+        padding: EdgeInsets.only(bottom: marginsThickness),
+        decoration: BoxDecoration(
             border: Border(
-                bottom: BorderSide(
-                    color: Color.fromRGBO(149, 0, 20, 1.0), width: 2.0))),
+                bottom:
+                    BorderSide(color: mainColor, width: separatorThickness))),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             SizedBox(
-                height: 50,
+                height: rowHeight,
                 child: CircleAvatar(
-                  radius: 23,
-                  backgroundColor: const Color.fromRGBO(149, 0, 20, 1.0),
+                  radius: circleRadius,
+                  backgroundColor: mainColor,
                   child: Center(
                     child: Text(
                       _sigla,
-                      style: const TextStyle(
+                      style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'GillSans',
-                          fontSize: 20),
+                          fontSize: fontSize),
                     ),
                   ),
                 )),
             SizedBox(
-              height: 50,
+              height: rowHeight,
               child: Align(
                   alignment: Alignment.center,
                   child: Text(_nomeCompleto,
-                      style: const TextStyle(fontFamily: 'GillSans', fontSize: 20))),
+                      style: TextStyle(
+                          fontFamily: 'GillSans', fontSize: fontSize))),
             ),
             SizedBox(
-              height: 50,
+              height: rowHeight,
               child: Align(
                   alignment: Alignment.center,
                   child: Text(_turma,
-                      style: const TextStyle(fontFamily: 'GillSans', fontSize: 20))),
+                      style: TextStyle(
+                          fontFamily: 'GillSans', fontSize: fontSize))),
             ),
             Container(
-              height: 25,
-              width: 50,
+              height: rowHeight / 2,
+              width: rowHeight,
               decoration: BoxDecoration(
-                  color: const Color.fromRGBO(149, 0, 20, 1.0),
-                  borderRadius: BorderRadius.circular(5.0)),
+                  color: mainColor, borderRadius: BorderRadius.circular(5.0)),
               child: Align(
                   alignment: Alignment.center,
                   child: Text(_numParticipantes.toString(),
-                      style: const TextStyle(
+                      style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'GillSans',
-                          fontSize: 20))),
+                          fontSize: fontSize))),
             )
           ],
         ));

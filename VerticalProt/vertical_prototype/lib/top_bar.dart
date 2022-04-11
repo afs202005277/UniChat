@@ -2,21 +2,25 @@ import 'package:flutter/material.dart';
 
 class TopBar extends StatelessWidget with PreferredSizeWidget {
   final String _title;
+  final double barHeight = 85.0;
+  final double titleSize = 40.0;
+  final Color mainColor = const Color.fromRGBO(149, 0, 20, 1);
+  final double pictureSize = 60.0;
+  final double bottomBorderThickness = 10.0;
 
   TopBar(this._title, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      toolbarHeight: 85,
-      title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
+      toolbarHeight: barHeight,
+      title: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         const Text("      "),
-        Text(_title, style: const TextStyle(fontFamily: 'GillSans', fontSize: 40)),
+        Text(_title,
+            style: TextStyle(fontFamily: 'GillSans', fontSize: titleSize)),
         Container(
-            width: 60.0,
-            height: 60.0,
+            width: pictureSize,
+            height: pictureSize,
             decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
@@ -24,13 +28,13 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
                     image: AssetImage('assets/images/ruca.jpg'))))
       ]),
       backgroundColor: Colors.white,
-      foregroundColor: const Color.fromRGBO(149, 0, 20, 1),
+      foregroundColor: mainColor,
       bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(10.0),
-          child: Container(color: const Color.fromRGBO(149, 0, 20, 1), height: 10.0)),
+          preferredSize: Size.fromHeight(bottomBorderThickness),
+          child: Container(color: mainColor, height: bottomBorderThickness)),
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(85.0);
+  Size get preferredSize => Size.fromHeight(barHeight);
 }
