@@ -8,7 +8,7 @@ class AllChatsDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: TopBar('UniChat'),
+        appBar: TopBar('UNICHAT'),
         body: SingleChatDisplay('DA', 'Desenho de Algoritmos', '2LEIC03', 11),
         );
   }

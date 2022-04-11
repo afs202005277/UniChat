@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'image_loader.dart';
 
 class TopBar extends StatelessWidget with PreferredSizeWidget {
   final String _title;
 
-  TopBar(this._title);
+  TopBar(this._title, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
         const Text("      "),
-        Text(_title),
+        Text(_title, style: const TextStyle(fontFamily: 'GillSans', fontSize: 40)),
         Container(
             width: 60.0,
             height: 60.0,
