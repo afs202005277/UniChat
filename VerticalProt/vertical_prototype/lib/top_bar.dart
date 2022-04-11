@@ -9,27 +9,29 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      toolbarHeight: 85,
       title: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(_title),
-            CircleAvatar(
-              radius: 25.0,
-              child: ClipOval(
-                child: Image.asset('assets/images/ruca.jpg'),
-                //borderRadius: BorderRadius.circular(10.0),
-              ),
-            )
-          ]),
+        const Text("      "),
+        Text(_title),
+        Container(
+            width: 60.0,
+            height: 60.0,
+            decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage('assets/images/ruca.jpg'))))
+      ]),
       backgroundColor: Colors.white,
-      foregroundColor: Color.fromRGBO(149, 0, 20, 1),
+      foregroundColor: const Color.fromRGBO(149, 0, 20, 1),
       bottom: PreferredSize(
-          preferredSize: Size.fromHeight(10.0),
-          child: Container(color: Color.fromRGBO(149, 0, 20, 1), height: 10.0)),
+          preferredSize: const Size.fromHeight(10.0),
+          child: Container(color: const Color.fromRGBO(149, 0, 20, 1), height: 10.0)),
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(95.0);
+  Size get preferredSize => const Size.fromHeight(85.0);
 }
