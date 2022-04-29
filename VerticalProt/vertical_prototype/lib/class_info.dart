@@ -1,4 +1,4 @@
-class Class {
+class ClassInfo {
   String name;
   String code;
   Class(String name, String code) {
