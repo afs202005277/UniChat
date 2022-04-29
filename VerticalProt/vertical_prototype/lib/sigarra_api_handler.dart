@@ -3,24 +3,20 @@ import 'student_info.dart';
 
 class SigarraAPIhandler {
   static List<ClassInfo> getStudentClasses(int id) {
-    List<String> classes = [
-      "L.EIC010",
-      "L.EIC011",
-      "L.EIC012",
-      "L.EIC013",
-      "L.EIC014"
-    ];
+    List<String> classes = ['2LEIC03', '2317', '2LEIC11', '2LEIC10', '2311'];
     List<String> classDesc = [
-      "Algoritmos e Estruturas de Dados",
-      "Bases de Dados",
-      "Física II",
-      "Laboratório de Desenho e Teste de Software",
-      "Teoria da Computação"
+      'Desenho de Algoritmos',
+      'Engenharia de Software',
+      'Métodos Estatísticos',
+      'Sistemas Operativos',
+      'Laboratório de Computadores'
     ];
+
+    List<String> acronyms = ['DA', 'ES', 'ME', 'SO', 'LC'];
 
     List<ClassInfo> studentClasses = [];
     for (int i = 0; i < classDesc.length; i++) {
-      studentClasses.add(ClassInfo(classes[i], classDesc[i]));
+      studentClasses.add(ClassInfo(classes[i], classDesc[i], acronyms[i]));
     }
     return studentClasses;
   }

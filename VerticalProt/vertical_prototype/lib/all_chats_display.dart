@@ -12,8 +12,9 @@ class AllChatsDisplay extends StatelessWidget {
   }
 
   Widget chats() {
+    int GET_CURRENT_STUDENT_ID = 1;
     return Column(
-        children: GetChatList.fetchAll()
+        children: GetChatList.fetchAll(GET_CURRENT_STUDENT_ID)
             .map((chat) => SingleChatDisplay(chat.sigla, chat.nomeCompleto,
                 chat.turma, chat.numParticipantes))
             .toList());

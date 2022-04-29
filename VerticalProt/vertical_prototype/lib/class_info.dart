@@ -1,5 +1,6 @@
 class ClassInfo {
-  String name;
+  String classNumber;
+  String fullName;
   String code;
-  ClassInfo(this.name, this.code);
+  ClassInfo(this.classNumber, this.fullName, this.code);
 }
