@@ -1,7 +1,8 @@
 import 'class_info.dart';
+import 'student_info.dart';
 
 class SigarraAPIhandler {
-  static List<ClassInfo> getStudentClasses(Student st) {
+  static List<ClassInfo> getStudentClasses(int id) {
     List<String> classes = [
       "L.EIC010",
       "L.EIC011",
