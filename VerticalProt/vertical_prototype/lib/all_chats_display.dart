@@ -12,7 +12,8 @@ class AllChatsDisplay extends StatelessWidget {
   }
 
   Widget chats() {
-    int GET_CURRENT_STUDENT_ID = 1;
+    int GET_CURRENT_STUDENT_ID =
+        1; // isto simula um acesso ao user q esta logado na UNI, para obter o numero mecanografico dele
     return Column(
         children: GetChatList.fetchAll(GET_CURRENT_STUDENT_ID)
             .map((chat) => SingleChatDisplay(chat.sigla, chat.nomeCompleto,
