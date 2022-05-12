@@ -1,5 +1,4 @@
 import 'class_info.dart';
-import 'student_info.dart';
 
 class SigarraAPIhandler {
   static List<ClassInfo> getStudentClasses(int id) {
