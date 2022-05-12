@@ -1,5 +1,6 @@
-class Class {
-  String name;
+class ClassInfo {
+  String classNumber;
+  String fullName;
   String code;
-  Class(this.name, this.code);
+  ClassInfo(this.classNumber, this.fullName, this.code);
 }
