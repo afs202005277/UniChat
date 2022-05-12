@@ -1,7 +1,7 @@
 import 'sigarra_api_handler.dart';
 import 'class_info.dart';
 
-class Student {d
+class Student {
   static int id = 0;
   static String nome = "";
   static List<Class> classes = [];
