@@ -11,7 +11,7 @@ void main() {
     await tester.pumpWidget(const MyApp());
 
     expect(find.text("UNICHAT"), findsOneWidget);
-    for(ChatInfo chatinfo in GetChatList.fetchAll()){
+    for(ChatInfo chatinfo in GetChatList.fetchAll(1)){
         expect(find.text(chatinfo.nomeCompleto), findsOneWidget);
         expect(find.text(chatinfo.numParticipantes.toString()), findsOneWidget);
         expect(find.text(chatinfo.turma), findsOneWidget);
