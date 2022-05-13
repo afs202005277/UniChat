@@ -4,12 +4,16 @@ import 'package:auto_size_text/auto_size_text.dart';
 class TopBar extends StatelessWidget with PreferredSizeWidget {
   final String _title;
   final double barHeight = 85.0;
-  final double titleSize = 35.0;
+  double titleSize = 27.0;
   final Color mainColor = const Color.fromRGBO(149, 0, 20, 1);
   final double pictureSize = 60.0;
   final double bottomBorderThickness = 10.0;
 
-  TopBar(this._title, {Key? key}) : super(key: key);
+  TopBar(this._title, {Key? key}) : super(key: key) {
+    if (_title == "UNICHAT") {
+      titleSize = 40.0;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

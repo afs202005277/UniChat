@@ -1,10 +1,11 @@
+import 'package:vertical_prototype/backend_server.dart';
 import 'package:vertical_prototype/chat_info.dart';
-import 'sigarra_api_handler.dart';
+import 'backend_server.dart';
 import 'class_info.dart';
 
 class GetChatList {
   static List<ChatInfo> fetchAll(int id) {
-    List<ClassInfo> classes = SigarraAPIhandler.getStudentClasses(id);
+    List<ClassInfo> classes = BackendServer.getStudentChatRooms(id);
     List<ChatInfo> res = [];
 
     List<int> numParticipants = [
