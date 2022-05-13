@@ -19,7 +19,7 @@ class AllChatsDisplay extends StatelessWidget {
               MaterialPageRoute(builder: (context) => const Writing()),
             );
           },
-          style: ElevatedButton.styleFrom(primary: Colors.grey),
+          style: ElevatedButton.styleFrom(primary: Colors.white),
         ),
       ),
     );

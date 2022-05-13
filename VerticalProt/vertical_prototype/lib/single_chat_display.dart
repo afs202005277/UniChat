@@ -7,7 +7,7 @@ class SingleChatDisplay extends StatelessWidget {
   final Color mainColor = const Color.fromRGBO(149, 0, 20, 1.0);
   final double separatorThickness = 2.0;
   final double rowHeight = 50.0;
-  final double fontSize = 22.0;
+  final double fontSize = 23.0;
   final double circleRadius = 23.0;
 
   const SingleChatDisplay(
@@ -48,7 +48,9 @@ class SingleChatDisplay extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Text(_nomeCompleto,
                       style: TextStyle(
-                          fontFamily: 'GillSans', fontSize: fontSize))),
+                          color: mainColor,
+                          fontFamily: 'GillSans',
+                          fontSize: fontSize))),
             ),
             SizedBox(
               height: rowHeight,
@@ -56,7 +58,9 @@ class SingleChatDisplay extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Text(_turma,
                       style: TextStyle(
-                          fontFamily: 'GillSans', fontSize: fontSize))),
+                          color: mainColor,
+                          fontFamily: 'GillSans',
+                          fontSize: fontSize))),
             ),
             Container(
               height: rowHeight / 2,
