@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'writing.dart';
 
 class SingleChatDisplay extends StatelessWidget {
   final String _sigla, _nomeCompleto, _turma;
@@ -17,65 +18,74 @@ class SingleChatDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.only(top: marginsThickness),
-        padding: EdgeInsets.only(bottom: marginsThickness),
-        decoration: BoxDecoration(
-            border: Border(
-                bottom:
-                    BorderSide(color: mainColor, width: separatorThickness))),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            SizedBox(
-                height: rowHeight,
-                child: CircleAvatar(
-                  radius: circleRadius,
-                  backgroundColor: mainColor,
-                  child: Center(
-                    child: Text(
-                      _sigla,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'GillSans',
-                          fontSize: fontSize),
-                    ),
-                  ),
-                )),
-            SizedBox(
-              height: rowHeight,
-              child: Align(
-                  alignment: Alignment.center,
-                  child: Text(_nomeCompleto,
-                      style: TextStyle(
-                          color: mainColor,
-                          fontFamily: 'GillSans',
-                          fontSize: fontSize))),
-            ),
-            SizedBox(
-              height: rowHeight,
-              child: Align(
-                  alignment: Alignment.center,
-                  child: Text(_turma,
-                      style: TextStyle(
-                          color: mainColor,
-                          fontFamily: 'GillSans',
-                          fontSize: fontSize))),
-            ),
-            Container(
-              height: rowHeight / 2,
-              width: rowHeight,
-              decoration: BoxDecoration(
-                  color: mainColor, borderRadius: BorderRadius.circular(5.0)),
-              child: Align(
-                  alignment: Alignment.center,
-                  child: Text(_numParticipantes.toString(),
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'GillSans',
-                          fontSize: fontSize))),
-            )
-          ],
-        ));
+    return ElevatedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Writing(_nomeCompleto)),
+          );
+        },
+        style: ElevatedButton.styleFrom(primary: Colors.white),
+        child: Container(
+            margin: EdgeInsets.only(top: marginsThickness),
+            padding: EdgeInsets.only(bottom: marginsThickness),
+            decoration: BoxDecoration(
+                border: Border(
+                    bottom: BorderSide(
+                        color: mainColor, width: separatorThickness))),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SizedBox(
+                    height: rowHeight,
+                    child: CircleAvatar(
+                      radius: circleRadius,
+                      backgroundColor: mainColor,
+                      child: Center(
+                        child: Text(
+                          _sigla,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'GillSans',
+                              fontSize: fontSize),
+                        ),
+                      ),
+                    )),
+                SizedBox(
+                  height: rowHeight,
+                  child: Align(
+                      alignment: Alignment.center,
+                      child: Text(_nomeCompleto,
+                          style: TextStyle(
+                              color: mainColor,
+                              fontFamily: 'GillSans',
+                              fontSize: fontSize))),
+                ),
+                SizedBox(
+                  height: rowHeight,
+                  child: Align(
+                      alignment: Alignment.center,
+                      child: Text(_turma,
+                          style: TextStyle(
+                              color: mainColor,
+                              fontFamily: 'GillSans',
+                              fontSize: fontSize))),
+                ),
+                Container(
+                  height: rowHeight / 2,
+                  width: rowHeight,
+                  decoration: BoxDecoration(
+                      color: mainColor,
+                      borderRadius: BorderRadius.circular(5.0)),
+                  child: Align(
+                      alignment: Alignment.center,
+                      child: Text(_numParticipantes.toString(),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'GillSans',
+                              fontSize: fontSize))),
+                )
+              ],
+            )));
   }
 }
