@@ -42,7 +42,7 @@ class Writing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TopBar('Chat Detail'),
+      appBar: TopBar('Engenharia de Software'),
       body: Stack(
         children: <Widget>[
           Align(
@@ -76,7 +76,7 @@ class Writing extends StatelessWidget {
                   const Expanded(
                     child: TextField(
                       decoration: InputDecoration(
-                          hintText: "Write message...",
+                          hintText: "Write a message...",
                           hintStyle: TextStyle(color: Colors.black54),
                           border: InputBorder.none),
                     ),
