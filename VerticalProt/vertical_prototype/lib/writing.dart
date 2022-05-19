@@ -1,16 +1,40 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'top_bar.dart';
 
 class Writing extends StatelessWidget {
   final String nameToTopBar;
   const Writing(this.nameToTopBar, {Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    final textController = TextEditingController();
     return Scaffold(
       appBar: TopBar(nameToTopBar),
       body: Stack(
         children: <Widget>[
+          StreamBuilder(
+            stream: FirebaseFirestore.instance
+                .collection(nameToTopBar)
+                .snapshots(), // get all messages from firebase
+            builder: (
+              BuildContext context,
+              AsyncSnapshot<QuerySnapshot> snapshot,
+            ) {
+              if (!snapshot.hasData) return const SizedBox.shrink();
+              return ListView.builder(
+                itemCount: snapshot.data!.docs.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final docData = snapshot.data?.docs[index].data() as Map<
+                      String,
+                      dynamic>; // o metodo builder está a iterar pelas mensagens. A variavel docData tem a mensagem que estas a ler neste momento, no formato userName => conteudo da mensagem (é como se fosse um dicionario do python)
+                  return ListTile(
+                    title: Text(docData[
+                        'Andre']), // acede ao conteudo da mensagem do user Andre e manda isso para o ecra. A decoracao da mensagem deve ser feita aqui
+                  );
+                },
+              );
+            },
+          ),
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
@@ -39,9 +63,10 @@ class Writing extends StatelessWidget {
                   const SizedBox(
                     width: 15,
                   ),
-                  const Expanded(
+                  Expanded(
                     child: TextField(
-                      decoration: InputDecoration(
+                      controller: textController,
+                      decoration: const InputDecoration(
                           hintText: "Write a message...",
                           hintStyle: TextStyle(color: Colors.black54),
                           border: InputBorder.none),
@@ -51,7 +76,11 @@ class Writing extends StatelessWidget {
                     width: 15,
                   ),
                   FloatingActionButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      FirebaseFirestore.instance
+                          .collection(nameToTopBar)
+                          .add({"Andre": textController.text});
+                    },
                     child: const Icon(
                       Icons.send,
                       color: Colors.white,
