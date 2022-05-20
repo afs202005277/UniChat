@@ -76,12 +76,14 @@ class Writing extends StatelessWidget {
                               (docData['timeAndDate'] as Timestamp)
                                       .toDate()
                                       .hour
-                                      .toString() +
+                                      .toString()
+                                      .padLeft(2, "0") +
                                   ":" +
                                   (docData['timeAndDate'] as Timestamp)
                                       .toDate()
                                       .minute
-                                      .toString(),
+                                      .toString()
+                                      .padLeft(2, "0"),
                               style: const TextStyle(
                                 fontSize: 12,
                                 color: Color.fromRGBO(203, 203, 203, 1),
