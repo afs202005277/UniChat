@@ -141,6 +141,7 @@ class Writing extends StatelessWidget {
                         "Andre": textController.text,
                         "timeAndDate": DateTime.now()
                       });
+                      textController.clear();
                     },
                     child: const Icon(
                       Icons.send,
