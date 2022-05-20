@@ -15,7 +15,7 @@ class Writing extends StatelessWidget {
           StreamBuilder(
             stream: FirebaseFirestore.instance
                 .collection(nameToTopBar)
-                .orderBy("timeAndDate")
+                .orderBy("timeAndDate", descending: true)
                 .snapshots(), // get all messages from firebase
             builder: (
               BuildContext context,
@@ -23,6 +23,7 @@ class Writing extends StatelessWidget {
             ) {
               if (!snapshot.hasData) return const SizedBox.shrink();
               return ListView.builder(
+                reverse: true,
                 itemCount: snapshot.data!.docs.length,
                 padding: EdgeInsets.only(bottom: 70, top: 10),
                 shrinkWrap: true,
