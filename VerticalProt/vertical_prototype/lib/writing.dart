@@ -23,8 +23,10 @@ class Writing extends StatelessWidget {
                 .collection(nameToTopBar)
                 .orderBy("timeAndDate", descending: true)
                 .snapshots(), // get all messages from firebase
-            builder: (BuildContext context,
-                AsyncSnapshot<QuerySnapshot> snapshot,) {
+            builder: (
+              BuildContext context,
+              AsyncSnapshot<QuerySnapshot> snapshot,
+            ) {
               if (!snapshot.hasData) return const SizedBox.shrink();
               return ListView.builder(
                 reverse: true,
@@ -33,55 +35,54 @@ class Writing extends StatelessWidget {
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
                   final docData =
-                  snapshot.data?.docs[index].data() as Map<String, dynamic>;
+                      snapshot.data?.docs[index].data() as Map<String, dynamic>;
                   return Container(
                     padding: const EdgeInsets.symmetric(
                         vertical: 10, horizontal: 14),
                     child: Align(
-                      alignment: (docData.keys.first.toString() == senderName)
+                      alignment: (docData["nameOfWriter"] == senderName)
                           ? Alignment.topLeft
                           : Alignment.topRight,
                       child: Container(
                         constraints: BoxConstraints(
-                          maxWidth: MediaQuery
-                              .of(context)
-                              .size
-                              .width / 2,
+                          maxWidth: MediaQuery.of(context).size.width / 2,
                         ),
                         decoration: BoxDecoration(
-                          borderRadius: (docData.keys.first.toString() == senderName)
-                              ? BorderRadius.only(
-                              topRight: Radius.circular(26),
-                              bottomLeft: Radius.circular(26),
-                              bottomRight: Radius.circular(26))
-                              : BorderRadius.only(
-                              topLeft: Radius.circular(26),
-                              bottomLeft: Radius.circular(26),
-                              bottomRight: Radius.circular(26)),
-                          color: (docData.keys.first.toString() == senderName)
-                          ? Color.fromRGBO(149, 0, 20, 1)
-                          : Color.fromRGBO( 47,  47, 47, 1),
+                          borderRadius: (docData["nameOfWriter"] == senderName)
+                              ? const BorderRadius.only(
+                                  topRight: Radius.circular(26),
+                                  bottomLeft: Radius.circular(26),
+                                  bottomRight: Radius.circular(26))
+                              : const BorderRadius.only(
+                                  topLeft: Radius.circular(26),
+                                  bottomLeft: Radius.circular(26),
+                                  bottomRight: Radius.circular(26)),
+                          color: (docData["nameOfWriter"] == senderName)
+                              ? const Color.fromRGBO(149, 0, 20, 1)
+                              : const Color.fromRGBO(47, 47, 47, 1),
                         ),
                         padding: const EdgeInsets.all(16),
                         child: Column(
-                          crossAxisAlignment: (docData.keys.first.toString() == senderName)
-                          ? CrossAxisAlignment.end
-                          : CrossAxisAlignment.start,
+                          crossAxisAlignment:
+                              (docData["nameOfWriter"] == senderName)
+                                  ? CrossAxisAlignment.end
+                                  : CrossAxisAlignment.start,
                           children: [
                             Column(
-                              crossAxisAlignment: (docData.keys.first.toString() == senderName)
-                               ? CrossAxisAlignment.start
-                               : CrossAxisAlignment.end,
+                              crossAxisAlignment:
+                                  (docData["nameOfWriter"] == senderName)
+                                      ? CrossAxisAlignment.start
+                                      : CrossAxisAlignment.end,
                               children: [
                                 Text(
-                                  docData.keys.first.toString(),
+                                  docData["nameOfWriter"],
                                   style: const TextStyle(
                                     fontSize: 12,
                                     color: Color.fromRGBO(203, 203, 203, 1),
                                   ),
                                 ),
                                 Text(
-                                  docData[docData.keys.first.toString()],
+                                  docData["message"],
                                   style: const TextStyle(
                                     fontSize: 15,
                                     color: Colors.white,
@@ -94,10 +95,10 @@ class Writing extends StatelessWidget {
                             ),
                             Text(
                               (docData['timeAndDate'] as Timestamp)
-                                  .toDate()
-                                  .hour
-                                  .toString()
-                                  .padLeft(2, "0") +
+                                      .toDate()
+                                      .hour
+                                      .toString()
+                                      .padLeft(2, "0") +
                                   ":" +
                                   (docData['timeAndDate'] as Timestamp)
                                       .toDate()
@@ -161,7 +162,8 @@ class Writing extends StatelessWidget {
                   FloatingActionButton(
                     onPressed: () {
                       FirebaseFirestore.instance.collection(nameToTopBar).add({
-                        senderName: textController.text,
+                        "nameOfWriter": senderName,
+                        "message": textController.text,
                         "timeAndDate": DateTime.now()
                       });
                       textController.clear();
