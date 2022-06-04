@@ -1,10 +1,12 @@
 import 'dart:math';
 
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'top_bar.dart';
 import 'package:uni/model/profile_page_model.dart';
 import 'package:uni/utils/constants.dart' as Constants;
+import 'package:file_picker/file_picker.dart';
 
 class Writing extends StatelessWidget {
   final String nameToTopBar;
@@ -137,12 +139,25 @@ class Writing extends StatelessWidget {
                         color: const Color.fromRGBO(149, 0, 20, 1),
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      child: const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 20,
-                      ),
                     ),
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  FloatingActionButton(
+                    onPressed: () async {
+                      FilePickerResult result =
+                          await FilePicker.platform.pickFiles();
+                      if (result != null)
+                        File file = File(result.files.single.path);
+                    },
+                    child: const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                    backgroundColor: const Color.fromRGBO(149, 0, 20, 1),
+                    elevation: 0,
                   ),
                   const SizedBox(
                     width: 15,
