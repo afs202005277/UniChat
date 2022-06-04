@@ -141,15 +141,14 @@ class Writing extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    width: 15,
-                  ),
                   FloatingActionButton(
                     onPressed: () async {
                       FilePickerResult result =
                           await FilePicker.platform.pickFiles();
-                      if (result != null)
+                      if (result != null) {
                         File file = File(result.files.single.path);
+                        // Call file processing function
+                      }
                     },
                     child: const Icon(
                       Icons.add,
