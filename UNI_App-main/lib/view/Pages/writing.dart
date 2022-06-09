@@ -2,11 +2,16 @@ import 'dart:math';
 
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:path_provider/path_provider.dart';
 import 'top_bar.dart';
 import 'package:uni/model/profile_page_model.dart';
 import 'package:uni/utils/constants.dart' as Constants;
 import 'package:file_picker/file_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:url_launcher/url_launcher.dart';
 
 class Writing extends StatelessWidget {
   final String nameToTopBar;
@@ -83,13 +88,41 @@ class Writing extends StatelessWidget {
                                     color: Color.fromRGBO(203, 203, 203, 1),
                                   ),
                                 ),
-                                Text(
-                                  docData['message'],
-                                  style: const TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                  ),
-                                ),
+
+                                (docData['type'] != "image")
+                                  ?   (docData['type'] == "other")
+                                       ?    Row(
+                                         children: [
+                                           IconButton(
+                                                onPressed: () async {
+                                                  String url = docData['message'];
+                                                  var urllaunchable = await canLaunch(url);
+                                                  if(urllaunchable){
+                                                    await launch(url);
+                                                  }else{
+                                                    print("URL can't be launched.");
+                                                  }
+                                                },
+                                                icon:Icon(Icons.arrow_circle_down)),
+                                                Text(
+                                              docData['name'],
+                                              style: const TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                         ],
+                                       )
+                                       : Text(
+                                      docData['message'],
+                                      style: const TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  : Image.network(docData['message']),
+
+
                                 const SizedBox(
                                   height: 5,
                                 ),
@@ -130,17 +163,29 @@ class Writing extends StatelessWidget {
               color: const Color.fromRGBO(249, 249, 249, 1),
               child: Row(
                 children: <Widget>[
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(height: 30, width: 30),
-                  ),
                   FloatingActionButton(
                     onPressed: () async {
                       FilePickerResult result =
                           await FilePicker.platform.pickFiles();
                       if (result != null) {
                         File file = File(result.files.single.path);
-                        // Call file processing function
+                        String fileName = result.files.single.name;
+                        final storage = firebase_storage.FirebaseStorage.instance;
+                        try {
+                            await storage.ref('files/$fileName').putFile(file);
+                          String downloadURL = await storage.ref('files/$fileName').getDownloadURL();
+                          FirebaseFirestore.instance.collection(nameToTopBar).add({
+                            'nameOfWriter': senderName,
+                            'message':downloadURL,
+                            'type' :(result.files.single.extension == "png" || result.files.single.extension == "jpg")
+                             ? "image"
+                             : "other",
+                            'name':fileName,
+                            'timeAndDate': DateTime.now()
+                          });
+                        } catch (e) {
+                          print('error occured');
+                        }
                       }
                     },
                     child: const Icon(
