@@ -132,14 +132,7 @@ class Writing extends StatelessWidget {
                 children: <Widget>[
                   GestureDetector(
                     onTap: () {},
-                    child: Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: const Color.fromRGBO(149, 0, 20, 1),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
+                    child: Container(height: 30, width: 30),
                   ),
                   FloatingActionButton(
                     onPressed: () async {
