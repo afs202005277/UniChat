@@ -37,6 +37,35 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:1064877785236:android:870b30a8f6cb26b2147481",
+        "android_client_info": {
+          "package_name": "feup.esof.t9g4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064877785236-6q59kh933g54kemtga4nb127md6i9fn1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_SOduTE_sV7c0OF9U4PPxxG6a1AmEKsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064877785236-6q59kh933g54kemtga4nb127md6i9fn1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:1064877785236:android:f54ed5d677764eef147481",
         "android_client_info": {
           "package_name": "pt.up.fe.ni.uni"

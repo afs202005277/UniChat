@@ -44,7 +44,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "pt.up.fe.ni.uni"
+        applicationId "feup.esof.t9g4"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
