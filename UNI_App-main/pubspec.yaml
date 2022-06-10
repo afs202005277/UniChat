@@ -48,6 +48,8 @@ dependencies:
   sentry_flutter: ^5.0.0
   email_validator: ^1.0.6
   file_picker: ^4.6.1
+  flutter_gherkin: ^2.0.0
+  glob: ^2.0.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

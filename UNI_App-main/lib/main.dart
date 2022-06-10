@@ -83,6 +83,7 @@ class MyAppState extends State<MyApp> {
       store: state,
       child: MaterialApp(
           title: 'uni',
+          key: Key("mainPageUni"),
           theme: applicationLightTheme,
           home: SplashScreen(),
           navigatorKey: NavigationService.navigatorKey,
