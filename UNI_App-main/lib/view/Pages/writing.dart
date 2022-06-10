@@ -88,36 +88,35 @@ class Writing extends StatelessWidget {
                                     color: Color.fromRGBO(203, 203, 203, 1),
                                   ),
                                 ),
-
                                 (docData['type'] != "image")
-                                  ?   (docData['type'] == "other")
-                                       ?    Row(
-                                         children: [
-                                           IconButton(
-                                                onPressed: () async {
-                                                  final String url = docData['message'];
-                                                  await launch(url);
-                                                },
-                                                icon:Icon(Icons.arrow_circle_down)),
-                                                Text(
-                                              docData['name'],
-                                              style: const TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.white,
+                                    ? (docData['type'] == "other")
+                                        ? Row(
+                                            children: [
+                                              IconButton(
+                                                  onPressed: () async {
+                                                    final String url =
+                                                        docData['message'];
+                                                    await launch(url);
+                                                  },
+                                                  icon: Icon(
+                                                      Icons.arrow_circle_down)),
+                                              Text(
+                                                docData['name'],
+                                                style: const TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white,
+                                                ),
                                               ),
+                                            ],
+                                          )
+                                        : Text(
+                                            docData['message'],
+                                            style: const TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.white,
                                             ),
-                                         ],
-                                       )
-                                       : Text(
-                                      docData['message'],
-                                      style: const TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.white,
-                                      ),
-                                    )
-                                  : Image.network(docData['message']),
-
-
+                                          )
+                                    : Image.network(docData['message']),
                                 const SizedBox(
                                   height: 5,
                                 ),
@@ -165,17 +164,23 @@ class Writing extends StatelessWidget {
                       if (result != null) {
                         File file = File(result.files.single.path);
                         String fileName = result.files.single.name;
-                        final storage = firebase_storage.FirebaseStorage.instance;
+                        final storage =
+                            firebase_storage.FirebaseStorage.instance;
                         try {
-                            await storage.ref('files/$fileName').putFile(file);
-                          String downloadURL = await storage.ref('files/$fileName').getDownloadURL();
-                          FirebaseFirestore.instance.collection(nameToTopBar).add({
+                          await storage.ref('files/$fileName').putFile(file);
+                          String downloadURL = await storage
+                              .ref('files/$fileName')
+                              .getDownloadURL();
+                          FirebaseFirestore.instance
+                              .collection(nameToTopBar)
+                              .add({
                             'nameOfWriter': senderName,
-                            'message':downloadURL,
-                            'type' :(result.files.single.extension == "png" || result.files.single.extension == "jpg")
-                             ? "image"
-                             : "other",
-                            'name':fileName,
+                            'message': downloadURL,
+                            'type': (result.files.single.extension == "png" ||
+                                    result.files.single.extension == "jpg")
+                                ? "image"
+                                : "other",
+                            'name': fileName,
                             'timeAndDate': DateTime.now()
                           });
                         } catch (e) {
@@ -197,10 +202,19 @@ class Writing extends StatelessWidget {
                   Expanded(
                     child: TextField(
                       controller: textController,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                           hintText: 'Write a message...',
                           hintStyle: TextStyle(color: Colors.black54),
-                          border: InputBorder.none),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(width: 2, color: Colors.black54),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          enabledBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(width: 2, color: Colors.black54),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)))),
                     ),
                   ),
                   const SizedBox(
