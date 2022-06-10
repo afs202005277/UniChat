@@ -95,13 +95,8 @@ class Writing extends StatelessWidget {
                                          children: [
                                            IconButton(
                                                 onPressed: () async {
-                                                  String url = docData['message'];
-                                                  var urllaunchable = await canLaunch(url);
-                                                  if(urllaunchable){
-                                                    await launch(url);
-                                                  }else{
-                                                    print("URL can't be launched.");
-                                                  }
+                                                  final String url = docData['message'];
+                                                  await launch(url);
                                                 },
                                                 icon:Icon(Icons.arrow_circle_down)),
                                                 Text(
