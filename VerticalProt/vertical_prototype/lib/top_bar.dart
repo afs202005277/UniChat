@@ -24,6 +24,7 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
             style: TextStyle(fontFamily: 'GillSans', fontSize: titleSize),
             maxLines: 1),
         Container(
+          key: Key("profilePic"),
             margin: const EdgeInsets.only(left: 12),
             width: pictureSize,
             height: pictureSize,

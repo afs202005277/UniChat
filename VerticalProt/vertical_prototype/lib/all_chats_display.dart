@@ -9,6 +9,7 @@ class AllChatsDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: const Key("mainPage"),
       appBar: TopBar('UNICHAT'),
       body: Center(
         child: chats(),

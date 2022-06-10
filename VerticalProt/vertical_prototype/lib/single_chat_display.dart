@@ -19,6 +19,7 @@ class SingleChatDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      key: Key(_sigla),
         onPressed: () {
           Navigator.push(
             context,

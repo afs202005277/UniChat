@@ -24,9 +24,9 @@ class Writing extends StatelessWidget {
                 .orderBy("timeAndDate", descending: true)
                 .snapshots(), // get all messages from firebase
             builder: (
-              BuildContext context,
-              AsyncSnapshot<QuerySnapshot> snapshot,
-            ) {
+                BuildContext context,
+                AsyncSnapshot<QuerySnapshot> snapshot,
+                ) {
               if (!snapshot.hasData) return const SizedBox.shrink();
               return ListView.builder(
                 reverse: true,
@@ -35,8 +35,9 @@ class Writing extends StatelessWidget {
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
                   final docData =
-                      snapshot.data?.docs[index].data() as Map<String, dynamic>;
+                  snapshot.data?.docs[index].data() as Map<String, dynamic>;
                   return Container(
+                    key: const Key("messageCard"),
                     padding: const EdgeInsets.symmetric(
                         vertical: 10, horizontal: 14),
                     child: Align(
@@ -50,13 +51,13 @@ class Writing extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: (docData["nameOfWriter"] == senderName)
                               ? const BorderRadius.only(
-                                  topRight: Radius.circular(26),
-                                  bottomLeft: Radius.circular(26),
-                                  bottomRight: Radius.circular(26))
+                              topRight: Radius.circular(26),
+                              bottomLeft: Radius.circular(26),
+                              bottomRight: Radius.circular(26))
                               : const BorderRadius.only(
-                                  topLeft: Radius.circular(26),
-                                  bottomLeft: Radius.circular(26),
-                                  bottomRight: Radius.circular(26)),
+                              topLeft: Radius.circular(26),
+                              bottomLeft: Radius.circular(26),
+                              bottomRight: Radius.circular(26)),
                           color: (docData["nameOfWriter"] == senderName)
                               ? const Color.fromRGBO(149, 0, 20, 1)
                               : const Color.fromRGBO(47, 47, 47, 1),
@@ -64,18 +65,19 @@ class Writing extends StatelessWidget {
                         padding: const EdgeInsets.all(16),
                         child: Column(
                           crossAxisAlignment:
-                              (docData["nameOfWriter"] == senderName)
-                                  ? CrossAxisAlignment.end
-                                  : CrossAxisAlignment.start,
+                          (docData["nameOfWriter"] == senderName)
+                              ? CrossAxisAlignment.end
+                              : CrossAxisAlignment.start,
                           children: [
                             Column(
                               crossAxisAlignment:
-                                  (docData["nameOfWriter"] == senderName)
-                                      ? CrossAxisAlignment.start
-                                      : CrossAxisAlignment.end,
+                              (docData["nameOfWriter"] == senderName)
+                                  ? CrossAxisAlignment.start
+                                  : CrossAxisAlignment.end,
                               children: [
                                 Text(
                                   docData["nameOfWriter"],
+                                  key: const Key("name"),
                                   style: const TextStyle(
                                     fontSize: 12,
                                     color: Color.fromRGBO(203, 203, 203, 1),
@@ -83,6 +85,7 @@ class Writing extends StatelessWidget {
                                 ),
                                 Text(
                                   docData["message"],
+                                  key: Key(docData["message"]),
                                   style: const TextStyle(
                                     fontSize: 15,
                                     color: Colors.white,
@@ -95,16 +98,17 @@ class Writing extends StatelessWidget {
                             ),
                             Text(
                               (docData['timeAndDate'] as Timestamp)
-                                      .toDate()
-                                      .hour
-                                      .toString()
-                                      .padLeft(2, "0") +
+                                  .toDate()
+                                  .hour
+                                  .toString()
+                                  .padLeft(2, "0") +
                                   ":" +
                                   (docData['timeAndDate'] as Timestamp)
                                       .toDate()
                                       .minute
                                       .toString()
                                       .padLeft(2, "0"),
+                              key: const Key("timestamp"),
                               style: const TextStyle(
                                 fontSize: 12,
                                 color: Color.fromRGBO(203, 203, 203, 1),
@@ -139,6 +143,7 @@ class Writing extends StatelessWidget {
                       ),
                       child: const Icon(
                         Icons.add,
+                        key: Key("addButton"),
                         color: Colors.white,
                         size: 20,
                       ),
@@ -149,6 +154,7 @@ class Writing extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextField(
+                      key: const Key("messageInput"),
                       controller: textController,
                       decoration: const InputDecoration(
                           hintText: "Write a message...",
@@ -160,6 +166,7 @@ class Writing extends StatelessWidget {
                     width: 15,
                   ),
                   FloatingActionButton(
+                    key: const Key("actionSendButton"),
                     onPressed: () {
                       FirebaseFirestore.instance.collection(nameToTopBar).add({
                         "nameOfWriter": senderName,
@@ -170,6 +177,7 @@ class Writing extends StatelessWidget {
                     },
                     child: const Icon(
                       Icons.send,
+                      key: Key("sendButton"),
                       color: Colors.white,
                       size: 18,
                     ),
